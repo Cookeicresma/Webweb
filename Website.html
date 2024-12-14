@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Channel Dashboard</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #FF8C00, #FF1493, #32CD32);
+      color: white;
+      overflow: hidden;
+      transition: background-color 0.5s;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: linear-gradient(135deg, #FF4500, #FF6347, #FF1493);
+      color: white;
+      padding: 30px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: width 0.3s ease;
+      overflow-y: auto;
+    }
+
+    /* Buttons in Sidebar */
+    .sidebar button {
+      background-color: #FF6347;
+      border: none;
+      color: white;
+      padding: 15px;
+      margin: 15px 0;
+      width: 80%;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar button:hover {
+      background-color: #FF4500;
+      transform: scale(1.05);
+    }
+
+    .sidebar button.active {
+      background-color: #FF4500;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+      background-color: #fff;
+      color: #333;
+      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s;
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Card Style */
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #FF6347;
+    }
+
+    .card p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .card button {
+      background-color: #FF6347;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #FF4500;
+    }
+
+    /* Social Media Buttons */
+    .social-media-buttons a {
+      display: inline-block;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .social-media-buttons button {
+      width: 100%;
+      background-color: #FF6347;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-media-buttons button:hover {
+      background-color: #FF4500;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar mit Buttons -->
+  <div class="sidebar">
+    <button onclick="showTab(1)" id="btn1">Kanal</button>
+    <button onclick="showTab(2)" id="btn2">Über mich</button>
+    <button onclick="showTab(3)" id="btn3">Mein Ziel</button>
+    <button onclick="showTab(4)" id="btn4">Links</button>
+    <button onclick="showTab(5)" id="btn5">Blog</button>
+    <button onclick="showTab(6)" id="btn6">Events</button>
+    <button onclick="showTab(7)" id="btn7">FAQ</button>
+    <button onclick="showTab(8)" id="btn8">Social Media</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Tab 1: Kanal -->
+    <div class="tab-content" id="tab1">
+      <div class="card">
+        <h2>EmdenBlox Kanal</h2>
+        <div id="subscriberCount">101 Abonnenten</div>
+        <iframe src="https://www.livecounts.io/youtube/@EmdenBlox" width="400" height="100" frameborder="0" scrolling="no"></iframe>
+        <button onclick="window.location.href='https://www.youtube.com/@EmdenBlox'">Zum Kanal</button>
+      </div>
+    </div>
+
+    <!-- Tab 2: Über mich -->
+    <div class="tab-content" id="tab2">
+      <div class="card">
+        <h2>Über mich</h2>
+        <p>Hallo! Ich Bin EmdenBlox ich bin ein Roblox Content Creator. Ich mag es Youtube Videos zu machen deswegen Mache ich YouTube und ich Danke euch allen Für Denn Support :D</p>
+      </div>
+    </div>
+
+    <!-- Tab 3: Mein Ziel -->
+    <div class="tab-content" id="tab3">
+      <div class="card">
+        <h2>Mein Ziel</h2>
+        <p>Mein Ziel ist es, eine starke und unterstützende Community aufzubauen, die gemeinsam wächst. Ich strebe an, qualitativ hochwertige Inhalte zu liefern und meine Zuschauer zu inspirieren. Ich freue mich darauf, dieses Ziel mit dir zu teilen!</p>
+      </div>
+    </div>
+
+    <!-- Tab 4: Links -->
+    <div class="tab-content" id="tab4">
+      <div class="card">
+        <h3>Roblox Gruppe:</h3>
+        <p>Hier Findet Ihr meine Community Gruppe</p>
+        <button onclick="window.location.href='https://www.roblox.com/de/communities/15685262/Die-Molen#!/about'">Community Gruppe</button>
+      </div>
+      <div class="card">
+        <h3>Roblox Profil:</h3>
+        <p>Hier Kommt ihr zu Meinem Roblox Profil</p>
+        <button onclick="window.location.href='https://www.roblox.com/de/users/2989325854/profile'">Roblox Profil</button>
+      </div>
+      <div class="card">
+        <h3>Meine Dev Gruppe</h3>
+        <p>Ich bin auch Spiele Entwickler Hier könnt ihr zur meiner Gruppe für meine Spiele</p>
+        <button onclick="window.location.href='https://www.roblox.com/de/communities/34651201/Cookie-Star-Studios#!/about'">Dev Gruppe</button>
+      </div>
+    </div>
+
+    <!-- Tab 5: Blog -->
+    <div class="tab-content" id="tab5">
+      <div class="card">
+        <h2>Blog</h2>
+        <article>
+          <h3>Update für "Clicker Simulator"!</h3>
+          <p>Es gab ein großes Update für "Clicker Simulator"! Jetzt gibt es neue Features wie ein verbessertes Gameplay, neue Karten und spannende Missionen! Schau es dir an!</p>
+        </article>
+        <article>
+          <h3>Neues Game!</h3>
+          <p>Ein Neues Hangout ist da in der Gruppe Cookie Star Studios (Alpha nicht Fertig!</p>
+        </article>
+        <article>
+          <h3>Cooming Soon...</h3>
+          <p>Cooming Soon...</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Tab 6: Events -->
+    <div class="tab-content" id="tab6">
+      <div class="card">
+        <h2>Events</h2>
+        <p>Upcoming Events: In Kürze werden wir ein großes Event für die Community veranstalten. Bleib dran für weitere Details!</p>
+      </div>
+    </div>
+
+    <!-- Tab 7: FAQ -->
+    <div class="tab-content" id="tab7">
+      <div class="card">
+        <h2>FAQ</h2>
+        <p>Hier werden häufig gestellte Fragen beantwortet. Hast du Fragen? Lass es uns wissen!</p>
+      </div>
+    </div>
+
+    <!-- Tab 8: Social Media -->
+    <div class="tab-content" id="tab8">
+      <div class="social-media-buttons">
+        <a href="https://twitter.com/EmdenBlox">
+          <button>Twitter</button>
+        </a>
+        <a href="https://www.instagram.com/emdenblox/">
+          <button>Instagram</button>
+        </a>
+        <a href="https://www.twitch.tv/emdenblox">
+          <button>Twitch</button>
+        </a>
+        <a href="https://discord.gg/emdenblox">
+          <button>Discord</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Funktion, um das Anzeigen der Tabs zu steuern
+  function showTab(tabNumber) {
+    // Alle Tabs ausblenden
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    // Den ausgewählten Tab anzeigen
+    document.getElementById('tab' + tabNumber).classList.add('active');
+
+    // Alle Buttons zurücksetzen und dann den ausgewählten Button aktiv setzen
+    const buttons = document.querySelectorAll('.sidebar button');
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById('btn' + tabNumber).classList.add('active');
+  }
+
+  // Standardmäßig den ersten Tab anzeigen
+  showTab(1);
+</script>
+
+</body>
+</html>
